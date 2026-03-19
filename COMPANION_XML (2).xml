@@ -1,0 +1,1258 @@
+<!--
+================================================================
+  MAD LAB — COMPANION XML CHEAT SHEET (ICT 3268)
+  HOW TO USE:
+  1. Ctrl+F the section you need
+  2. Copy the entire XML block
+  3. Paste into your layout file in Android Studio
+  4. Only change: android:id names to match your Kotlin code
+  5. IDs are kept simple — etName, btnSubmit etc so they
+     match exactly with the Kotlin cheat sheet
+================================================================
+-->
+
+
+<!-- ╔═══════════════════════════════════════════════════════╗ -->
+<!-- ║  GOLDEN RULE — IDs that match the Kotlin cheatsheet  ║ -->
+<!-- ║  EditText   → etName, etPhone, etEmail, etInput      ║ -->
+<!-- ║  Button     → btnSubmit, btnBack, btnReset, btnPick  ║ -->
+<!-- ║  TextView   → tvResult, tvDate, tvTime, tvSelected   ║ -->
+<!-- ║  Spinner    → spinner, spinnerService, spinnerType   ║ -->
+<!-- ║  ListView   → listView                               ║ -->
+<!-- ║  GridView   → gridView                               ║ -->
+<!-- ║  ToggleBtn  → toggleBtn                              ║ -->
+<!-- ║  CheckBox   → cbItem1, cbItem2, cbItem3              ║ -->
+<!-- ╚═══════════════════════════════════════════════════════╝ -->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 1 — BASIC FORM LAYOUT
+     Use for: any simple input form (name, phone, email etc)
+     File:    activity_main.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="App Title Here"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full Name"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp"/>
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your name"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone Number"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp"/>
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter phone number"
+            android:inputType="phone"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp"/>
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter email"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SUBMIT"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+</ScrollView>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 2 — SPINNER + DATEPICKER + TIMEPICKER LAYOUT
+     Use for: booking apps, registration apps, ticket apps
+     File:    activity_main.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Booking Form"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full Name"
+            android:layout_marginBottom="4dp"/>
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter name"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Phone -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone Number"
+            android:layout_marginBottom="4dp"/>
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter phone number"
+            android:inputType="phone"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Spinner -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Type"
+            android:layout_marginBottom="4dp"/>
+        <Spinner
+            android:id="@+id/spinnerService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Date Picker -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date"
+            android:layout_marginBottom="4dp"/>
+        <Button
+            android:id="@+id/btnPickDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pick Date"
+            android:layout_marginBottom="4dp"/>
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No date selected"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Time Picker -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Time"
+            android:layout_marginBottom="4dp"/>
+        <Button
+            android:id="@+id/btnPickTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pick Time"
+            android:layout_marginBottom="4dp"/>
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No time selected"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Toggle -->
+        <ToggleButton
+            android:id="@+id/toggleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="Option A"
+            android:textOff="Option B"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Submit + Reset side by side -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SUBMIT"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnReset"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="RESET"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 3 — CONFIRMATION / RESULTS PAGE
+     Use for: second activity that shows submitted details
+     File:    activity_confirmation.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Booking Confirmed!"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="32dp"/>
+
+    <!-- Details card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#F5F5F5"
+        android:padding="20dp"
+        android:layout_marginBottom="32dp">
+
+        <TextView
+            android:id="@+id/tvConfirmName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:id="@+id/tvConfirmPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:id="@+id/tvConfirmService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:id="@+id/tvConfirmDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Add more TextViews here for more fields -->
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BACK"/>
+
+</LinearLayout>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 4 — LISTVIEW LAYOUT
+     Use for: Lab 3, sports list, any scrollable list
+     File:    activity_listview.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select an Item"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="16dp"/>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 5 — GRIDVIEW LAYOUT
+     Use for: Lab 3, image grids, category grids
+     File:    activity_gridview.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Grid View"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="16dp"/>
+
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="3"
+        android:columnWidth="100dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"
+        android:padding="8dp"/>
+
+</LinearLayout>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 6 — TABLAYOUT + VIEWPAGER2 LAYOUT
+     Use for: Lab 3, news app, tab navigation
+     File:    activity_tabs.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="fixed"
+        app:tabGravity="fill"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
+-->
+
+<!-- Tab Fragment layout — save as fragment_tab.xml -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/tvTabContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:padding="24dp"/>
+
+</LinearLayout>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 7 — TABLELAYOUT
+     Use for: Lab 3, structured data display
+     File:    activity_table.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:stretchColumns="*">
+
+        <!-- Header Row -->
+        <TableRow android:background="#CCCCCC" android:padding="4dp">
+            <TextView
+                android:text="Column 1"
+                android:textStyle="bold"
+                android:padding="8dp"/>
+            <TextView
+                android:text="Column 2"
+                android:textStyle="bold"
+                android:padding="8dp"/>
+            <TextView
+                android:text="Column 3"
+                android:textStyle="bold"
+                android:padding="8dp"/>
+        </TableRow>
+
+        <!-- Data Row 1 — copy this row as many times as needed -->
+        <TableRow android:padding="4dp">
+            <TextView android:text="Data 1" android:padding="8dp"/>
+            <TextView android:text="Data 2" android:padding="8dp"/>
+            <TextView android:text="Data 3" android:padding="8dp"/>
+        </TableRow>
+
+        <!-- Data Row 2 -->
+        <TableRow android:background="#F5F5F5" android:padding="4dp">
+            <TextView android:text="Data 4" android:padding="8dp"/>
+            <TextView android:text="Data 5" android:padding="8dp"/>
+            <TextView android:text="Data 6" android:padding="8dp"/>
+        </TableRow>
+
+    </TableLayout>
+</ScrollView>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 8 — BUTTONS + TOGGLE + IMAGEVIEW LAYOUT
+     Use for: Lab 4, toggle apps, mode switcher
+     File:    activity_buttons.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <Button
+        android:id="@+id/btnNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click Me"
+        android:layout_marginBottom="16dp"/>
+
+    <ToggleButton
+        android:id="@+id/toggleBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="ON"
+        android:textOff="OFF"
+        android:layout_marginBottom="16dp"/>
+
+    <ImageView
+        android:id="@+id/imgMode"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status will show here"
+        android:textSize="16sp"/>
+
+</LinearLayout>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 9 — CHECKBOX LAYOUT (Food Order style)
+     Use for: Lab 4, food ordering, selection apps
+     File:    activity_food.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Items"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+
+    <CheckBox
+        android:id="@+id/cbItem1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Item 1 - ₹100"
+        android:textSize="16sp"
+        android:layout_marginBottom="12dp"/>
+
+    <CheckBox
+        android:id="@+id/cbItem2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Item 2 - ₹200"
+        android:textSize="16sp"
+        android:layout_marginBottom="12dp"/>
+
+    <CheckBox
+        android:id="@+id/cbItem3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Item 3 - ₹150"
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT ORDER"/>
+
+</LinearLayout>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 10 — ORDER SUMMARY / RESULT PAGE (2nd Activity)
+     Use for: any second page that just shows results
+     File:    activity_order_summary.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order Summary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:id="@+id/tvSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BACK"/>
+
+</LinearLayout>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 11 — SQLITE FORM LAYOUT
+     Use for: Lab 8, task manager, grocery, movie review
+     File:    activity_sqlite.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/etDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Date"
+        android:layout_marginBottom="8dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerPriority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp">
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="SAVE"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="DELETE"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvTasks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 12 — SHARED PREFERENCES LAYOUT
+     Use for: Lab 8, login state, settings, remember me
+     File:    activity_prefs.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Preferences"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"/>
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Username"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Email"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnSavePrefs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SAVE"/>
+
+</LinearLayout>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 13 — MENU FILES (res/menu/)
+     Use for: Lab 6, Lab 7 — Options, Context, Popup menus
+     ════════════════════════════════════════════════════════════ -->
+
+<!-- menu_main.xml — Options Menu (three dots) -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_refresh"
+        android:title="Refresh"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/menu_settings"
+        android:title="Settings"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/menu_about"
+        android:title="About"
+        app:showAsAction="never"/>
+
+</menu>
+-->
+
+<!-- context_menu.xml — Context Menu (long press) -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/ctx_open"      android:title="Open"/>
+    <item android:id="@+id/ctx_edit"      android:title="Edit"/>
+    <item android:id="@+id/ctx_delete"    android:title="Delete"/>
+    <item android:id="@+id/ctx_details"   android:title="View Details"/>
+
+</menu>
+-->
+
+<!-- popup_menu.xml — Popup Menu (button anchored) -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/popup_option1" android:title="Option 1"/>
+    <item android:id="@+id/popup_option2" android:title="Option 2"/>
+    <item android:id="@+id/popup_option3" android:title="Option 3"/>
+
+</menu>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 14 — ACTIVITY LIFECYCLE LAYOUT
+     Use for: Lab 2, lifecycle demo
+     File:    activity_lifecycle.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Activity Lifecycle Demo"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lifecycle events:\n"
+            android:textSize="15sp"
+            android:padding="8dp"
+            android:fontFamily="monospace"/>
+
+    </ScrollView>
+
+</LinearLayout>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 15 — CALCULATOR LAYOUT (2 Activities)
+     Use for: Lab 2, calculator app
+     File:    activity_calculator.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculator"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="32dp"/>
+
+    <EditText
+        android:id="@+id/etNum1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Number 1"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/etNum2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Number 2"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- 4 operator buttons in a row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+"
+            android:layout_margin="4dp"/>
+
+        <Button
+            android:id="@+id/btnSub"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="-"
+            android:layout_margin="4dp"/>
+
+        <Button
+            android:id="@+id/btnMul"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="×"
+            android:layout_margin="4dp"/>
+
+        <Button
+            android:id="@+id/btnDiv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="÷"
+            android:layout_margin="4dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+-->
+
+<!-- activity_result.xml — second activity for calculator result -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp">
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BACK"/>
+
+</LinearLayout>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 16 — URL OPENER LAYOUT
+     Use for: Lab 2, implicit intent, open browser
+     File:    activity_url.xml
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open URL"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"/>
+
+    <EditText
+        android:id="@+id/etUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="https://example.com"
+        android:inputType="textUri"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnOpen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OPEN URL"/>
+
+</LinearLayout>
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     QUICK REFERENCE — inputType values for EditText
+     ════════════════════════════════════════════════════════════
+     android:inputType="text"               normal text
+     android:inputType="textPersonName"     name field
+     android:inputType="textEmailAddress"   email field
+     android:inputType="phone"              phone number
+     android:inputType="number"             whole numbers only
+     android:inputType="numberDecimal"      decimal numbers
+     android:inputType="textPassword"       password (hidden)
+     android:inputType="textUri"            URL field
+     android:inputType="textMultiLine"      multiline text box
+     ════════════════════════════════════════════════════════════ -->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     QUICK REFERENCE — layout_width / layout_height values
+     ════════════════════════════════════════════════════════════
+     match_parent   fills entire parent width/height
+     wrap_content   only as big as its content
+     0dp            use only with layout_weight (splits space)
+     ════════════════════════════════════════════════════════════ -->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     QUICK REFERENCE — common android:gravity values
+     ════════════════════════════════════════════════════════════
+     center          centers horizontally and vertically
+     center_horizontal  centers left-right only
+     start           aligns to left
+     end             aligns to right
+     top             aligns to top
+     ════════════════════════════════════════════════════════════ -->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 17 — TOOLBAR (for NoActionBar theme)
+     Use when: Menu (three dots) not showing on screen
+     Cause:    Theme.Material3 or any NoActionBar theme
+     File:     activity_main.xml (add as FIRST child of LinearLayout)
+     ════════════════════════════════════════════════════════════
+     ALSO ADD in MainActivity.kt inside onCreate after setContentView():
+         setSupportActionBar(findViewById(R.id.toolbar))
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<!-- ADD THIS AS THE VERY FIRST ELEMENT inside your LinearLayout -->
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+-->
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 18 — DATE PICKER WITH LIMIT (note, no new XML needed)
+     Use when: "only future dates" / "only next X days" / "only past"
+     File:     activity_main.xml — same as SECTION 2 (no XML change)
+               The restriction is done in Kotlin only — see SECTION 5B-2
+               in MAD_CHEATSHEET.kt
+     ════════════════════════════════════════════════════════════
+     QUICK REFERENCE for Kotlin:
+       Only future:      dp.datePicker.minDate = today.timeInMillis
+       Only next 20 days: dp.datePicker.minDate = today.timeInMillis
+                          dp.datePicker.maxDate = maxDate.timeInMillis  (today+20)
+       Only past:        dp.datePicker.maxDate = today.timeInMillis
+     ════════════════════════════════════════════════════════════ -->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     QUICK REFERENCE — Exam theme check
+     ════════════════════════════════════════════════════════════
+     Open res/values/themes.xml and check parent= value:
+
+     Theme.AppCompat.Light.DarkActionBar  → Menu works, NO toolbar needed
+     Theme.Material3.DayNight.NoActionBar → Menu HIDDEN, ADD SECTION 17 toolbar
+     Theme.AppCompat.Light.NoActionBar    → Menu HIDDEN, ADD SECTION 17 toolbar
+
+     Rule: If theme name contains "NoActionBar" → always add Section 17 toolbar
+     ════════════════════════════════════════════════════════════ -->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     QUICK REFERENCE — Which section to use for common questions
+     ════════════════════════════════════════════════════════════
+     Booking app (Name+Phone+Spinner+Date)     → SECTION 2 + SECTION 3
+     Menu not showing (NoActionBar theme)      → SECTION 17 + KT SECTION 6B
+     Date restricted to future/range           → SECTION 2 + KT SECTION 5B-2
+     Options menu (three dots)                 → SECTION 13 menu_main.xml
+     Context menu (long press)                 → SECTION 13 context_menu.xml
+     Popup menu (button click menu)            → SECTION 13 popup_menu.xml
+     Food order with checkboxes                → SECTION 9
+     SQLite form                               → SECTION 11
+     Shared Preferences (save/restore)         → SECTION 12
+     Tab layout (News app style)               → SECTION 6
+     ListView                                  → SECTION 4
+     GridView                                  → SECTION 5
+     ════════════════════════════════════════════════════════════ -->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 19 — RADIO BUTTON + RADIO GROUP
+     Use for: single-choice selection (gender, plan, category)
+     File:    activity_main.xml
+     KT Ref:  SECTION 4C in MAD_CHEATSHEET.kt
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Plan"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- RadioGroup: only ONE button can be selected at a time -->
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="24dp">
+
+        <RadioButton
+            android:id="@+id/rbBasic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Basic Plan"
+            android:layout_marginBottom="8dp"/>
+
+        <RadioButton
+            android:id="@+id/rbStandard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Standard Plan"
+            android:layout_marginBottom="8dp"/>
+
+        <RadioButton
+            android:id="@+id/rbPremium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Premium Plan"/>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"/>
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
+-->
+<!-- NOTE: Change android:text values to match your question's options -->
+<!-- NOTE: Add more <RadioButton> blocks inside RadioGroup if needed   -->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 20 — SEEKBAR
+     Use for: rating, volume, brightness, age range selection
+     File:    activity_main.xml
+     KT Ref:  SECTION 4D in MAD_CHEATSHEET.kt
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Rating"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- max = highest value, progress = starting value -->
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="10"
+        android:progress="5"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Shows live value as user drags -->
+    <TextView
+        android:id="@+id/tvSeekValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Value: 5"
+        android:textSize="18sp"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"/>
+
+</LinearLayout>
+-->
+<!-- NOTE: Change android:max to match your question (e.g. 5 for star rating, 100 for volume) -->
+<!-- NOTE: Change android:progress to set the default starting position -->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 21 — CUSTOM SPINNER ITEM LAYOUT (image + text)
+     Use for: spinner with icons/flags/images beside text
+     File:    res/layout/spinner_item.xml  (NEW file, not activity)
+     KT Ref:  SECTION 5E in MAD_CHEATSHEET.kt
+     ════════════════════════════════════════════════════════════
+     ALSO NEED: CustomSpinnerAdapter class — see SECTION 5E in .kt
+     ════════════════════════════════════════════════════════════ -->
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/imgSpinner"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="12dp"/>
+
+    <TextView
+        android:id="@+id/tvSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:gravity="center_vertical"/>
+
+</LinearLayout>
+-->
+<!-- HOW TO CREATE THIS FILE:
+     Right-click res/layout → New → Layout Resource File
+     Name it: spinner_item
+     Root element: LinearLayout
+     Delete everything → paste above -->
+<!-- NOTE: IDs imgSpinner and tvSpinner must match CustomSpinnerAdapter in SECTION 5E -->
+
+
+<!-- END OF COMPANION XML CHEAT SHEET -->
